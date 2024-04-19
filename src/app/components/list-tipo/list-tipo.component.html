@@ -1,0 +1,31 @@
+<app-communication></app-communication>
+<div class="contenedor">
+    <h1>Listado de tipos</h1>
+    <app-preloader *ngIf="!loadComplete"></app-preloader>
+    <div *ngIf="loadComplete">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">TIPO</th>
+                    <th class="activo" scope="col">ACTIVO</th>
+                    <th scope="col">EDITAR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr [ngClass]="{
+                    'activo-bg-rojo':dato.activo==0,
+                    'activo-bg-verde':dato.activo==1
+                }" *ngFor="let dato of aDatos">
+                    <th scope="row">{{dato.id}}</th>
+                    <td scope="row">{{dato.nombre}}</td>
+                    <td [ngClass]="{
+                        'activo-rojo':dato.activo==0,
+                        'activo-verde':dato.activo==1
+                    }" scope="row">●</td>
+                    <td scope="row"><button type="button" class="btn btn-success btn-sm" [routerLink]="['/edit-tipo', dato.id]">Editar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

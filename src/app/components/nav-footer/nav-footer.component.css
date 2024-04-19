@@ -1,0 +1,64 @@
+/* ================================================= */
+/* FIRST MOBILE */
+/* ================================================= */
+.contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 1px var(--blanco-corporativo) solid;
+    padding: 1.5rem 0;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor a:link {
+    color: var(--blanco-corporativo);
+}
+
+.contenedor a:visited {
+    color: var(--blanco-corporativo);
+}
+
+.contenedor a:hover {
+    color: var(--blanco-corporativo);
+}
+.contenedor a:active {
+    color: var(--blanco-corporativo);
+}
+
+h2 {
+    margin-bottom: 0.25rem;
+}
+
+/* ================================================= */
+/* MEDIA QUERIES */
+/* ================================================= */
+
+/* MAYOR O IGUAL DE 576PX (A PARTIR DE 575PX INCLUSIVE) - SMARTPHONES */
+@media only screen and (min-width:576px){
+
+}
+
+/* MAYOR O IGUAL DE 768PX (A PARTIR DE 768PX INCLUSIVE) - SMARTPHONES GRANDES, TABLETS */
+@media only screen and (min-width:768px){
+
+}
+
+/* MAYOR O IGUAL DE 992PX (A PARTIR DE 992PX INCLUSIVE) - PC PEQUEÑOS, LAPTOPS */
+@media only screen and (min-width:992px){
+    .contenedor a:hover {
+        color: var(--amarillo-corporativo);
+    }
+    
+    .contenedor a:active {
+        color: var(--amarillo-corporativo);
+    }
+}
+
+/* MAYOR O IGUAL DE 1200PX (A PARTIR DE 1200PX INCLUSIVE) - PC GRANDES, TELEVISIONES */
+@media only screen and (min-width:1200px){
+
+}

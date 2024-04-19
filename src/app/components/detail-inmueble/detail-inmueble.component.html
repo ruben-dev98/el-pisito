@@ -1,0 +1,86 @@
+<app-communication></app-communication>
+<div class="contenedor">
+    <app-preloader *ngIf="!loadComplete"></app-preloader>
+    <div *ngIf="loadComplete">
+        <div class="ficha">
+            <app-carousel-ficha [dato]="inmueble"></app-carousel-ficha>
+        </div>
+        <h1 class="py-3">{{inmueble.titular}} ( {{inmueble.poblacion.nombre}}, {{inmueble.poblacion.provincia.nombre}} )</h1>
+        <div class="contenedor-iconos-precio">
+            <p class="precio">{{inmueble.precio | euros }}</p>
+            <div class="contenedor-iconos">
+                <div>
+                    <span class="numero-elementos">{{inmueble.numeroBanhos}}</span>
+                    <img src="assets/img/004-bathtub.svg" alt="icono baño" class="icono">
+                </div>
+                <div>
+                    <span class="numero-elementos">{{inmueble.numeroHabitaciones}}</span>
+                    <img src="assets/img/017-bed.svg" alt="icono habitaciones" class="icono">
+                </div>
+                <div>
+                    <span class="numero-planta">{{inmueble.planta}}</span>
+                    <img src="assets/img/011-office building.svg" alt="icono altura" class="icono">
+                </div>
+                <div>
+                    <span class="numero-elementos">{{inmueble.plazasGaraje}}</span>
+                    <img src="assets/img/007-garage.svg" alt="icono altura" class="icono">
+                </div>
+            </div>
+        </div>
+        <h5 class="subseccion">Descripción</h5>
+        <div class="subseccion-description">
+            <p class="descripcion">{{inmueble.descripcion}}</p>
+        </div>
+        <h5 class="subseccion">Detalles Básicos</h5>
+        <div class="contenedor-datos-basicos contenedor-subseccion contenedor-iconos-caracteristicas">
+            <div>
+                <i class="fa-solid fa-ruler-combined"></i><span>Superficie construida: {{inmueble.superficieConstruida | metrosCuadrados}}</span>
+            </div>
+            <div>
+                <i class="fa-solid fa-ruler-combined"></i><span>Superficie útil: {{inmueble.superficieUtil | metrosCuadrados}}</span>
+            </div>
+            <div>
+                <i class="fa-solid fa-bed"></i><span>Habitaciones: {{inmueble.numeroHabitaciones}}</span>
+            </div>
+            <div>
+                <i class="fa-solid fa-bath"></i><span>Baños: {{inmueble.numeroBanhos}}</span>
+            </div>
+            <div>
+                <i class="fa-solid fa-building"></i><span>Planta: {{inmueble.planta}}</span>
+            </div>
+            <div>
+                <i class="fa-solid fa-building"></i><span>Apertura: {{inmueble.apertura}}</span>
+            </div>
+        </div>
+        <h5 class="subseccion">Muebles y acabados</h5>
+        <div class="contenedor-muebles-acabados contenedor-subseccion">
+            <div>
+                <i class="fa-solid fa-couch"></i><span>{{inmueble.amueblado | amueblado}}</span>
+            </div>
+        </div>
+        <h5 class="subseccion">Equipamiento e instalaciones</h5>
+        <div class="contenedor-equipamiento-instalaciones contenedor-subseccion">
+            <div>
+                <i class="fa-solid fa-house-fire"></i><span>Calefacción: {{inmueble.tipoCalefaccion}}</span>
+            </div>
+            <div>
+                <i class="fa-solid fa-warehouse"></i>
+                <span>Garaje: <i class="{{inmueble.plazasGaraje | exist}}"></i></span>
+                <span class="plazas-exist" *ngIf="inmueble.plazasGaraje > 0">Plazas De Garaje: {{inmueble.plazasGaraje}}</span>
+            </div>
+            <div>
+                <i class="fa-solid fa-elevator"></i><span>Ascensor:  <i class="{{inmueble.ascensor | exist}}"></i></span>
+            </div>
+            <div>
+                <i class="fa-solid fa-boxes-packing"></i><span>Trastero: <i class="{{inmueble.trastero| exist}}"></i></span>
+            </div>
+            <div>
+                <i class="fa-solid fa-water-ladder"></i><span>Piscina: <i class="{{inmueble.piscina| exist}}"></i></span>
+            </div>
+            <div>
+                <i class="fa-solid fa-water-ladder"></i><span>Jardín: <i class="{{inmueble.jardin| exist}}"></i></span>
+            </div>
+        </div>
+    </div>
+</div>
+

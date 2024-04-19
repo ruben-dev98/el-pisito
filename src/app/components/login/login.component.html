@@ -1,0 +1,25 @@
+<app-communication></app-communication>
+<div class="contenedor">
+    <h1>Iniciar Sesión</h1>
+    <div class="d-flex justify-content-center align-items-center my-4 p-2">
+        <div class="content-link-sign">
+            <h6>Aun no te has registrado en el Pisito. Hagalo ahora!!!</h6>
+            <button type="submit" class="btn btn-md btn-primary" routerLink="/sigIn">Registrarse</button>
+        </div>
+    </div>
+    <form class="mx-auto" #form="ngForm" (ngSubmit)="login()" [formGroup]="loginForm">
+        <div class="mb-3">
+            <label for="username">Correo Eletrónico*</label>
+            <input class="form-control" required type="email" name="username" id="username" 
+            [class.is-invalid]="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" formControlName="username" autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="username">Contraseña*</label>
+            <input class="form-control" required type="password" name="password" id="password" 
+            [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" formControlName="password" autocomplete="off">
+        </div>
+        <div class="contenedor-boton">
+            <button type="submit" class="btn btn-md btn-primary" [disabled]="form.invalid">Iniciar Sesión</button>
+        </div>
+    </form>
+</div>

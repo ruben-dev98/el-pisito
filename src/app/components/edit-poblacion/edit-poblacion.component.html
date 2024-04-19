@@ -1,0 +1,27 @@
+<app-communication></app-communication>
+<div class="contenedor">
+    <h1>Editar Poblacion</h1>
+    <app-preloader *ngIf="!loadComplete"></app-preloader>
+    <form *ngIf="loadComplete" class="mx-auto" #form="ngForm" (ngSubmit)="edit()">
+        <div class="mb-3 id-entity">
+            <label class="form-label">ID: {{pob.id}}</label>
+        </div>
+        <div class="mb-3">
+            <label class="me-2 form-label" for="activo">ACTIVO</label>
+            <input type="checkbox" name="activo" id="activo" class="form-check-input" [(ngModel)]="pob.activo">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="poblacion">POBLACION*</label>
+            <input type="text" name="poblacion" id="poblacion" required class="form-control to-upperCase" autocomplete="off" [(ngModel)]="pob.nombre">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="provincia">PROVINCIA*</label>
+            <select [(ngModel)]="pob.provincia.id" required class="form-select" aria-label="Provincia Select" id="provincia" name="provincia">
+                <option *ngFor="let dato of aDatos" value="{{dato.id}}" [selected]="(dato.id==pob.provincia.id)"[ngClass]="{red: dato.activo == 0}">{{dato.nombre}}</option>
+            </select>
+        </div>
+        <div class="contenedor-boton">
+            <button type="submit" class="btn btn-md btn-primary" [disabled]="form.invalid">Modificar</button>
+        </div>
+    </form>
+</div>

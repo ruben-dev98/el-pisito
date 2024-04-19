@@ -1,0 +1,7 @@
+<div class="contenedor">
+    <h2 class="title-opor">Las Mejores Oportunidades</h2>
+    <app-preloader *ngIf="!loadComplete"></app-preloader>
+    <div class="content-carousel" *ngIf="loadComplete">
+        <app-ficha-inmueble class="ficha" *ngFor="let dato of aDatos" [dato]="dato"></app-ficha-inmueble>
+    </div>
+</div>

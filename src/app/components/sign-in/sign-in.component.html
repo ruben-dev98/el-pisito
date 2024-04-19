@@ -1,0 +1,23 @@
+<div class="contenedor">
+    <h1>Registrarse</h1>
+    <form class="mx-auto" #form="ngForm" (ngSubmit)="signIn()" [formGroup]="signInForm">
+        <div class="mb-3">
+            <label for="user">Nombre De Usuario*</label>
+            <input class="form-control" required type="text" name="user" id="user" 
+            [class.is-invalid]="signInForm.get('user')?.invalid && signInForm.get('user')?.touched" formControlName="user" autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="email">Correo Eletrónico*</label>
+            <input class="form-control" required type="email" name="email" id="email" 
+            [class.is-invalid]="signInForm.get('email')?.invalid && signInForm.get('email')?.touched" formControlName="email" autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="username">Contraseña*</label>
+            <input class="form-control" required type="password" name="password" id="password" 
+            [class.is-invalid]="signInForm.get('password')?.invalid && signInForm.get('password')?.touched" formControlName="password" autocomplete="off">
+        </div>
+        <div class="contenedor-boton">
+            <button type="submit" class="btn btn-md btn-primary" [disabled]="form.invalid">Registrarse</button>
+        </div>
+    </form>
+</div>

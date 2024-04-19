@@ -1,1 +1,120 @@
-/* You can add global styles to this file, and also import other style files */
+/*=======================================================*/
+/* COLORES CORPORATIVOS */
+/*=======================================================*/
+
+:root {
+    --azul-corporativo: #256197;
+    --azul-corporativo-oscuro: #1A456B;
+    --amarillo-corporativo: #D8B610;
+    --gris-corporativo-claro: #ECEEEF;
+    --gris-corporativo: #B1B3B4;
+    --gris-corporativo-oscuro: #999;
+    
+    --blanco-corporativo: #FFF;
+    --color-rojo-activo: crimson;
+    --color-negro-activo: #000;
+    --color-verde-activo: forestgreen;
+}
+
+/*=======================================================*/
+/* FIRST MOBILE */
+/*=======================================================*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    border: 0px;
+    outline: none;
+    box-sizing: 0px;
+}
+
+body, html {
+    height: 100%;
+    font-size: 16px; /* 1rem */
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin: 0 0 15px 0;
+    border-bottom: 1px var(--gris-corporativo) solid;
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin: 0;
+    border-bottom: 1px var(--gris-corporativo) solid;
+}
+
+h3 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+td,th {
+    vertical-align: middle;
+}
+
+.activo {
+    text-align: center;
+}
+
+.activo-rojo {
+    font-size: 2rem;
+    color: var(--color-rojo-activo);
+    text-align: center;
+}
+
+.activo-verde {
+    font-size: 2rem;
+    color: var(--color-verde-activo);
+    text-align: center;
+}
+
+.text-red {
+    font-size: 1.5rem;
+    color: var(--color-rojo-activo);
+    text-align: center;
+}
+
+.text-green {
+    font-size: 1.5rem;
+    color: var(--color-verde-activo);
+    text-align: center;
+}
+
+/*.activo-bg-rojo {
+    background-color: var(--color-rojo-activo);
+}
+
+.activo-bg-verde {
+    background-color: var(--color-verde-activo);
+}*/
+
+.to-upperCase{
+    text-transform: uppercase;
+}
+
+.id-entity {
+    font-weight: bold;
+    font-size: 1.5rem;
+    background-color: var(--gris-corporativo);
+    border-radius: 5px;
+    padding: 8px;
+    color: var(--blanco-corporativo);
+    margin: 0 0 5px 0;
+}
+
+.red {
+    background-color: var(--color-rojo-activo);
+    color: var(--blanco-corporativo);
+}
+
+.black {
+    color: var(--color-negro-activo);
+}

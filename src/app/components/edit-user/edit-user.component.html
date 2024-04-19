@@ -1,0 +1,39 @@
+<app-communication></app-communication>
+<div class="contenedor">
+    <h1>Editar Usuario</h1>
+    <app-preloader *ngIf="!loadComplete"></app-preloader>
+    <form *ngIf="loadComplete" class="mx-auto" #form="ngForm" (ngSubmit)="edit()" [formGroup]="editForm">
+        <div class="mb-3 id-entity">
+            <label class="form-label">ID: {{usuario.id}}</label>
+            <label class="form-label">EMAIL: {{usuario.email}}</label>
+        </div>
+        <div class="mb-3">
+            <label for="user">Nombre De Usuario*</label>
+            <input class="form-control" required type="text" name="user" id="user" 
+            [class.is-invalid]="editForm.get('user')?.invalid && editForm.get('user')?.touched" formControlName="user" autocomplete="off">
+        </div>
+        <div class="mb-3">
+            <label for="password">Contraseña*</label>
+            <input class="form-control" required type="password" name="password" id="password" 
+            [class.is-invalid]="editForm.get('password')?.invalid && editForm.get('password')?.touched" formControlName="password" autocomplete="off">
+        </div>
+        <div class="mb-3" *ngIf="isAdmin">
+            <label for="rol">Rol*</label>
+            <select class="form-select" required name="rol" id="rol" 
+            [class.is-invalid]="editForm.get('rol')?.invalid && editForm.get('rol')?.touched" formControlName="rol" autocomplete="off">
+                <option value="ROLE_USER">Usuario</option>
+                <option value="ROLE_ADMIN">Administrador</option>
+            </select>
+        </div>
+        <div class="mb-3" *ngIf="isAdmin">
+            <div class="mb-3">
+                <label class="me-2 form-label" for="activo">ACTIVO</label>
+                <input type="checkbox" name="activo" id="activo" class="form-check-input" 
+                [class.is-invalid]="editForm.get('activo')?.invalid && editForm.get('activo')?.touched" formControlName="activo" autocomplete="off">
+            </div>
+        </div>
+        <div class="contenedor-boton">
+            <button type="submit" class="btn btn-md btn-primary" [disabled]="form.invalid">Editar Usuario</button>
+        </div>
+    </form>
+</div>

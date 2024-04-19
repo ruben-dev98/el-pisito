@@ -1,0 +1,13 @@
+<app-communication></app-communication>
+<div class="contenedor">
+    <h1>Añadir Tipo</h1>
+    <form class="mx-auto" #form="ngForm" (ngSubmit)="add()">
+        <div class="mb-3">
+            <label class="form-label" for="tipo">TIPO*</label>
+            <input type="text" name="tipo" id="tipo" required class="form-control to-upperCase" autocomplete="off" [(ngModel)]="tipo.nombre">
+        </div>
+        <div class="contenedor-boton">
+            <button type="submit" class="btn btn-md btn-primary" [disabled]="form.invalid">+Tipo</button>
+        </div>
+    </form>
+</div>

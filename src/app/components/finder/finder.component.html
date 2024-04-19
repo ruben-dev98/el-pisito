@@ -1,0 +1,29 @@
+<div class="contenedor">
+    <app-preloader *ngIf="!loadComplete"></app-preloader>
+    <h5 class="title-finder">Busque Su Inmueble Soñado</h5>
+    <form *ngIf="loadComplete" class="contenedor-finder d-flex flex-column justify-content-center align-items-center" #form="ngForm" (ngSubmit)="find()">
+        <div class="content-select">
+            <div class="mb-3 contenedor-select">
+                <label class="form-label" for="poblacion">POBLACIÓN*</label>
+                <select [(ngModel)]="pob" required class="form-select" aria-label="Tipo Select" id="poblacion" name="poblacion">
+                    <option *ngFor="let dato of aPoblacion, let i=index;" [ngClass]="{selected: i == 0}" [ngValue]="dato">{{dato.nombre}} ({{dato.provincia.nombre}})</option>
+                </select>
+            </div>
+            <div class="mb-3 contenedor-select">
+                <label class="form-label" for="tipo">TIPO*</label>
+                <select [(ngModel)]="tipo" required class="form-select" aria-label="Tipo Select" id="tipo" name="tipo">
+                    <option *ngFor="let dato of aTipos, let i=index;" [ngClass]="{selected: i == 0}" [ngValue]="dato">{{dato.nombre}}</option>
+                </select>
+            </div>
+            <div class="mb-3 contenedor-select">
+                <label class="form-label" for="operacion">OPERACIÓN*</label>
+                <select [(ngModel)]="operacion" required class="form-select" aria-label="Operacion Select" id="operacion" name="operacion">
+                    <option *ngFor="let dato of aOperaciones, let i=index;" [ngClass]="{selected: i == 0}" value="{{dato}}">{{dato}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="contenedor-boton">
+            <button type="submit" class="btn btn-md btn-primary" [disabled]="form.invalid">Buscar Inmuebles</button>
+        </div>
+    </form>
+</div>

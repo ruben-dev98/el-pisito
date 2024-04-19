@@ -1,0 +1,29 @@
+<article class="ficha">
+    <app-carousel-ficha [dato]="dato"></app-carousel-ficha>
+    <div class="datos" [routerLink]="['/detail-inmueble', dato.id]">
+        <h3 class="titular">{{dato.titular}}</h3>
+        <h3 class="poblacion">{{dato.poblacion.nombre}}</h3>
+        <p class="precio">{{dato.precio | euros}}</p>
+    </div>
+    <footer class="footer-ficha">
+        <!--<div class="contenedor-botones-admin">
+            <button type="button" class="btn btn-success btn-sm" [routerLink]="['/edit-inmueble',dato.id]">E</button>
+            <button type="button" class="btn btn-info btn-sm" [routerLink]="['/add-imagen',dato.id]">+I</button>
+            <button type="button" class="btn btn-secondary btn-sm" [routerLink]="['/detail-inmueble',dato.id]"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>-->
+        <div class="contenedor-iconos">
+            <div>
+                <span class="numero-elementos">{{dato.numeroBanhos}}</span>
+                <img src="assets/img/004-bathtub.svg" alt="icono baño" class="icono">
+            </div>
+            <div>
+                <span class="numero-elementos">{{dato.numeroHabitaciones}}</span>
+                <img src="assets/img/017-bed.svg" alt="icono habitaciones" class="icono">
+            </div>
+            <div>
+                <span class="numero-planta">{{dato.planta}}</span>
+                <img src="assets/img/011-office building.svg" alt="icono altura" class="icono">
+            </div>
+        </div>
+    </footer>
+</article>

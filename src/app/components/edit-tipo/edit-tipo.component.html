@@ -1,0 +1,21 @@
+<app-communication></app-communication>
+<div class="contenedor">
+    <h1>Editar Tipo</h1>
+    <app-preloader *ngIf="!loadComplete"></app-preloader>
+    <form *ngIf="loadComplete" class="mx-auto" #form="ngForm" (ngSubmit)="edit()">
+        <div class="mb-3 id-entity">
+            <label class="form-label">ID: {{tipo.id}}</label>
+        </div>
+        <div class="mb-3">
+            <label class="me-2 form-label" for="activo">ACTIVO</label>
+            <input type="checkbox" name="activo" id="activo" class="form-check-input" [(ngModel)]="tipo.activo">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="tipo">TIPO*</label>
+            <input type="text" name="tipo" id="tipo" required class="form-control to-upperCase" autocomplete="off" [(ngModel)]="tipo.nombre">
+        </div>
+        <div class="contenedor-boton">
+            <button type="submit" class="btn btn-md btn-primary" [disabled]="form.invalid">Modificar</button>
+        </div>
+    </form>
+</div>

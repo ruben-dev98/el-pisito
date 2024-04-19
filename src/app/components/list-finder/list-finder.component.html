@@ -1,0 +1,15 @@
+<app-communication></app-communication>
+<div class="contenedor">
+    <div class="title-opor">
+        <h2>Poblacion: <span>{{namePob}} ({{nameProv}})</span></h2>
+        <h2>Tipo: <span>{{nameTipo}}</span></h2>
+        <h2>Operación: <span>{{operacion}}</span></h2>
+    </div>
+    <div class="not-exist" *ngIf="aDatos.length == 0">
+        <h2>No existe ningun inmueble con ese criterio de busqueda</h2>
+    </div>
+    <app-preloader *ngIf="!loadComplete"></app-preloader>
+    <div class="content-carousel" *ngIf="loadComplete">
+        <app-ficha-inmueble class="ficha" *ngFor="let dato of aDatos" [dato]="dato"></app-ficha-inmueble>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<app-preloader *ngIf="!loadComplete"></app-preloader>
+<div *ngIf="loadComplete" id="carouselFicha{{dato.id}}" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div [ngClass]="{
+            'carousel-item':true,
+            'active': i==0
+        }" *ngFor="let img of dato.imagenes; let i=index">
+            <img appNoImage src="{{url_img+img.nombre}}" [ngClass]="{'d-block': true, 'w-100': notDetail, 'carousel-display': !notDetail}" alt="imagen piso">
+        </div>
+        <div [ngClass]="{
+            'contenedor-no-image': !notDetail,
+        }" *ngIf="num_images == 0">
+            <img src="assets/img/no-image.jpg" [ngClass]="{
+                'no-imagen': notDetail,
+                'no-image-display-inmueble': !notDetail,
+            }" alt="no imagen">
+        </div>
+    </div>
+    <button  *ngIf="num_images > 0"  class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselFicha'+dato.id" data-bs-slide="prev">
+        <span [ngClass]="{'carousel-control-prev-icon': notDetail, 'carousel-control-prev-icon-black': !notDetail}" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button *ngIf="num_images > 0" class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselFicha'+dato.id" data-bs-slide="next">
+        <span [ngClass]="{'carousel-control-next-icon': notDetail, 'carousel-control-next-icon-black': !notDetail}" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

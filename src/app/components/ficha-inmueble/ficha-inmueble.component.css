@@ -1,0 +1,96 @@
+/* ================================================= */
+/* FIRST MOBILE */
+/* ================================================= */
+.ficha{
+    /* width: 100%; */
+    border:1px solid var(--gris-corporativo);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.icono{
+    height: 24px;
+    filter:invert(1);
+}
+
+.numero-elementos{
+    font-size: 1.5rem;
+    padding-right: 3px;
+    color: var(--blanco-corporativo);
+}
+
+.numero-planta{
+    font-size: 1rem;
+    padding-right: 5px;
+    color: var(--blanco-corporativo);
+}
+
+.titular,.poblacion{
+
+    font-size: 1rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.datos{
+    padding: 10px 0 5px 10px;
+    cursor: pointer;
+
+}
+
+.precio{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.contenedor-iconos div{
+    display: flex;
+    align-items: center;
+}
+
+.footer-ficha{
+    background-color: var(--gris-corporativo-oscuro);
+    padding:3px 15px 3px 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenedor-botones-admin button{
+    margin-right: 10px;
+}
+
+.contenedor-iconos {
+    display: flex;
+    justify-content: flex-end;
+    gap:10px;
+}
+/* ================================================= */
+/* MEDIA QUERIES */
+/* ================================================= */
+
+/* MAYOR O IGUAL DE 576PX (A PARTIR DE 575PX INCLUSIVE) - SMARTPHONES */
+@media only screen and (min-width:576px){
+
+}
+
+/* MAYOR O IGUAL DE 768PX (A PARTIR DE 768PX INCLUSIVE) - SMARTPHONES GRANDES, TABLETS */
+@media only screen and (min-width:768px){
+
+}
+
+/* MAYOR O IGUAL DE 992PX (A PARTIR DE 992PX INCLUSIVE) - PC PEQUEÑOS, LAPTOPS */
+@media only screen and (min-width:992px){
+    .ficha {
+        width: 85%;
+    }
+}
+
+/* MAYOR O IGUAL DE 1200PX (A PARTIR DE 1200PX INCLUSIVE) - PC GRANDES, TELEVISIONES */
+@media only screen and (min-width:1200px){
+
+}

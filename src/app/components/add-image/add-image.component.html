@@ -1,0 +1,19 @@
+<app-communication></app-communication>
+<div class="contenedor">
+    <h1>Añadir Imagen</h1>
+    <app-preloader *ngIf="!loadComplete"></app-preloader>
+    <form *ngIf="loadComplete" class="mx-auto" #form="ngForm">
+        <div class="mb-3 id-entity">
+            <label class="form-label">ID INMUEBLE: {{inmueble.id}}</label>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="image">IMAGEN:</label>
+            <input #image type="file" multiple="true" name="image" id="image" required class="form-control" accept=".jpg, .jpeg, .png" (change)="uploadImage($event)">
+        </div>
+        <div *ngIf="aImage.length != 0">
+            <div class="image-thumbs">
+                <img class="img" [src]="img" alt="Imagen De Inmueblen" *ngFor="let img of aImage">
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,44 @@
+<app-communication></app-communication>
+<div class="contenedor">
+    <h1>Listado de Inmuebles</h1>
+    <app-preloader *ngIf="!loadComplete"></app-preloader>
+    <div *ngIf="loadComplete">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">OPERACIÓN</th>
+                    <th scope="col">DIRECCION</th>
+                    <th scope="col">POBLACION</th>
+                    <th scope="col">TIPO</th>
+                    <th class="activo" scope="col">ACTIVO</th>
+                    <th class="activo" scope="col">PORTADA</th>
+                    <th scope="col">EDITAR</th>
+                    <th scope="col">AÑADIR IMAGENES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr [ngClass]="{
+                    'activo-bg-rojo':dato.activo==0,
+                    'activo-bg-verde':dato.activo==1
+                }" *ngFor="let dato of aDatos">
+                    <th scope="row">{{dato.id}}</th>
+                    <td scope="row">{{dato.operacion}}</td>
+                    <td scope="row">{{dato.direccionCompleta}}</td>
+                    <td scope="row">{{dato.poblacion.nombre}}</td>
+                    <td scope="row">{{dato.tipo.nombre}}</td>
+                    <td [ngClass]="{
+                        'activo-rojo':dato.activo==0,
+                        'activo-verde':dato.activo==1
+                    }" scope="row">●</td>
+                    <td [ngClass]="{
+                        'activo-rojo':dato.portada==0,
+                        'activo-verde':dato.portada==1
+                    }" scope="row">●</td>
+                    <td scope="row"><button type="button" class="btn btn-success btn-sm" [routerLink]="['/edit-inmueble', dato.id]">Editar</button></td>
+                    <td scope="row"><button type="button" class="btn btn-primary btn-sm" [routerLink]="['/add-image', dato.id]" >+Imagen</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
